@@ -1,0 +1,45 @@
+<?php
+require 'controlador_agenda.php';
+    $contato = editar_contato($_GET['id']);
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+<!-- CADASTRO-->
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-inline" method="post" action="controlador_agenda.php?acao=editar&id=<?=$_GET['id']?>">
+
+            <!--nome-->
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input name="nome1" type="text" class="form-control" id="nome" value="<?= $contato['nome'] ?>">
+            </div>
+
+            <!--email-->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input name="email1" type="email" class="form-control" id="email" value="<?= $contato['email'] ?>">
+            </div>
+
+            <!--telefone-->
+            <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input name="telefone1" type="number" class="form-control" id="telefone" value="<?= $contato['telefone'] ?>">
+            </div>
+
+            <button type="submit" class="btn btn-default">EDITAR</button>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>

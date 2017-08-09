@@ -1,0 +1,32 @@
+[
+    {
+        "id": "594a8264e1249",
+        "nome": "jefferson",
+        "login": "jefferson",
+        "senha": "123"
+    },
+    {
+        "id": "594bea3040d93",
+        "nome": "alguem",
+        "login": "alguem",
+        "senha": "alguem"
+    },
+    {
+        "id": "598b063b7621f",
+        "nome": "ola",
+        "login": "heitor",
+        "senha": "12345"
+    },
+    {
+        "id": "598b0743436ae",
+        "nome": "oi",
+        "login": "fred",
+        "senha": "54321"
+    },
+    {
+        "id": "598b07d3a4019",
+        "nome": null,
+        "login": "nicholas",
+        "senha": "nicholas2603"
+    }
+]
