@@ -4,8 +4,7 @@ function cadastrar($nome, $email, $telefone) {
    $contatosAuxiliar = pegar_contatos();
     $contato = ['id' => uniqid(), 'nome' => $nome, 'email' => $email, 'telefone' => $telefone];
     array_push($contatosAuxiliar, $contato);//pega o array contato e coloca dentro da matriz contatos auxiliar
-    $contatosJson = json_encode($contatosAuxiliar, JSON_PRETTY_PRINT);//codifica uma matriz para o formato json
-    file_put_contents('contatos.json', $contatosJson);//coloca o conteudo do array no arquivo contatos.json
+    salvarContatos($contatosAuxiliar);
 
     header('Location: index.phtml');
 }
@@ -22,9 +21,12 @@ function excluir($id,$contatos){
             unset($contatos[$i]);
         }
     }
-    $meuscontatos = json_encode($contatos,JSON_PRETTY_PRINT);//codifica uma matriz para o formato json
-    file_put_contents('contatos.json',$meuscontatos);//coloca o conteudo do array no arquivo contatos.json
+    salvarContatos($contatos);
     header('Location: index.phtml');
+}
+function salvarContatos($contato){
+    $meuscontatos = json_encode($contato,JSON_PRETTY_PRINT);//codifica uma matriz para o formato json
+    file_put_contents('contatos.json',$meuscontatos);//coloca o conteudo do array no arquivo contatos.json
 }
 function editar($id, $nome, $email, $telefone){
     $meuscontatos = pegar_contatos();
@@ -36,8 +38,7 @@ function editar($id, $nome, $email, $telefone){
             $meuscontatos[$i]['telefone'] = $telefone;
         }
     }
-    $meuscontatos = json_encode($meuscontatos,JSON_PRETTY_PRINT);
-    file_put_contents('contatos.json',$meuscontatos);
+   salvarContatos($meuscontatos);
     header('Location: index.phtml');
 }
 function editar_contato($id){
